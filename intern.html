@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form!!</title>
+    <link rel="stylesheet" href="instyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type = "text/javascript">
+        // Form validation 
+        function validate() {
+        if( document.myForm.name.value == "" ) {
+        alert( "Please provide your name!" );
+        document.myForm.name.focus() ;
+        return false;
+        }
+        if( document.myForm.email.value == "" ) {
+        alert( "Please provide your Email!" );
+        document.myForm.email.focus() ;
+        return false;
+        }
+        var email_id = document.myForm.email.value;
+			atpos = email_id.indexOf("@");
+			dotpos = email_id.lastIndexOf(".");	
+			if (atpos < 1 || ( dotpos - atpos < 2 ))
+		{
+			alert("Please enter correct email ID")
+			document.myForm.email.focus() ;
+			return false;
+		}
+        
+        if( document.myForm.phn.value == "" || isNaN( document.myForm.phn.value ) ||
+        document.myForm.phn.value.length != 10) {
+        alert( "Please provide a contact no. in the format ##########" );
+        document.myForm.phn.focus() ;
+        return false;
+        }
+        if( document.myForm.password.value == "" )
+		{
+			alert( "Please enter your password!" );
+			document.myForm.password.focus() ;
+			return false;
+	    }
+		if( document.myForm.confirm_password.value == "" )
+		{
+			alert( "Please confirm your password!" );
+			document.myForm.confirm_password.focus() ;
+			return false;
+	    }
+		if(document.myForm.password.value !=  document.myForm.confirm_password.value   )
+		{
+			alert( "should be same with given password!" );
+			document.myForm.confirm_password.focus() ;
+			return false;
+	    }
+        
+        return( true );
+        }
+        function validatee() {
+        if( document.myForm2.uname.value == "" ) {
+        alert( "Please provide your username name!" );
+        document.myForm2.uname.focus() ;
+        return false;
+        }
+        if( document.myForm2.passworrd.value == "" )
+		{
+			alert( "Please enter  your password!" );
+			document.myForm2.passworrd.focus() ;
+			return false;
+	    }
+		if(document.myForm.password.value !=  document.myForm2.passworrd.value   )
+		{
+			alert( "should be same with given password!" );
+			document.myForm2.passworrd.focus() ;
+			return false;
+	    }
+        if( document.myForm2.loc.value == "" ) {
+        alert( "Please provide your current location!" );
+        document.myForm2.loc.focus() ;
+        return false;
+        }
+        if( document.myForm2.pnr.value == "" ) {
+        alert( "Please provide your train PNR!" );
+        document.myForm2.pnr.focus() ;
+        return false;
+        }
+       
+        
+        return( true );
+        }
+        </script>
+
+</head>
+<body>
+  <div class="back">
+    <div class="container">
+        <div class="navbar">
+          <div class="logo">
+            <img src="images/images/RailSathi (1).png" alt="logo" width="200px">
+          </div>
+            <nav>
+              <ul id="MenuItems" >
+                <li><a href="">Home</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Account</a></li>
+              </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="form">
+            <form class="register-form" action = "actionservlet" name = "myForm" onsubmit = "return(validate());">
+                <input type="text" name="name" placeholder="Name"/>
+                <input type="text" name="email" placeholder="E-mail address"/>
+                <input type="text" name="phn" placeholder="Contact no."/>
+                <input type="password" name="password" placeholder="Password"/>
+                <input type="password" name="confirm_password" placeholder="Confirm Password"/>
+                <button>CREATE</button>
+                <p class="message">Already Registered? <a href="#">LOG IN</a></p>
+            </form>
+            <form class="login-form" action = "actionservlet" name = "myForm2" onsubmit = "return(validatee());">
+                <input type="text" name="uname" placeholder="Username"/>
+                <input type="password" name="passworrd" placeholder="Password"/>
+                <input type="text" name="loc" placeholder="Enter current location"/>
+                <input type="text" name="pnr" placeholder="Enter PNR number"/>
+                <textarea rows = "5" cols = "46" name = "description"  placeholder="Mention other requirements..."></textarea>
+                
+                <button>LOG_IN</button> 
+                
+                <p class="message">Not Registered? <a href="#">REGISTER</a></p>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+          <div class="footer-col-1">
+            <h3>Download Railyatri App</h3>
+            <p>Download for Android and ios mobile phones</p>
+             <div class="app-logo">
+                <img src="images/images/play-store.png" alt="">
+                <img src="images/images/app-store.png" alt="">
+             </div>
+          </div>
+          <div class="footer-col-2">
+           <img src="images/images/RailSathi (1).png" >
+           <p>Get your stuffs right by your side... <br>we are here always</p>
+         </div>
+         <div class="footer-col-3">
+           <h3>useful links</h3>
+           <ul class="uli">
+             <li>Security</li>
+               <li>Coupons</li>
+               <li>Blog post</li>
+               <li>Terms</li>
+           </ul>
+         </div>
+         <div class="footer-col-4">
+           <h3>Social links</h3>
+
+
+<!-- Add font awesome icons -->
+<a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-instagram"></a>
+<a href="#" class="fa fa-twitter"></a>
+
+<a href="#" class="fa fa-youtube"></a>
+<a href="#" class="fa fa-linkedin"></a>
+
+         </div>
+        </div>
+        <p class="copyright">Copyright@2022-www.railsathi.com All Rights Reserved</p>
+      </div>
+       </div>
+      
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'>
+    </script>
+    <script>
+        $('.message a').click(function(){
+            $('form').animate({height: "toggle",opacity:"toggle"},"slow");
+        });
+    </script>
+    
+</body>
+</html>
